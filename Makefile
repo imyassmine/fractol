@@ -18,7 +18,7 @@ endef
 
 NAME =			fractol
 CC =			cc
-CFLAGS =		-Wall -Wextra -Werror -I include -I $(LIB_DIR)/include -I $(MLX_DIR) $(EXTRA_FLAGS)
+CFLAGS =		-std=gnu17 -Wall -Wextra -Werror -I include -I $(LIB_DIR)/include -I $(MLX_DIR) $(EXTRA_FLAGS)
 
 SRC_DIR =		src/
 OBJ_DIR =		obj/
@@ -42,7 +42,7 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 
 $(NAME):		$(OBJ)
 				@make all --no-print-directory -C $(LIB_DIR)
-				@make all --no-print-directory -C $(MLX_DIR) > /dev/null 2>&1
+				@make all --no-print-directory -C $(MLX_DIR) CC="$(CC) -std=gnu17" > /dev/null 2>&1
 				$(call ANIMATION_FRAME,Building $(NAME) executable)
 				@$(CC) $(CFLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
 				@printf "$(GREEN)✓$(DEFAULT) Built successfully ($(words $?)/$(words $(SRC)) files recompiled)\n"

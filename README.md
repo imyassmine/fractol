@@ -39,8 +39,9 @@ $ ./fractol Sierpinski Psychedelic 5
 $ ./fractol Mandelbrot "255 120 0" 300        # custom RGB theme
 ```
 
-Usage: `./fractol <julia|mandelbrot|sierpinski> [theme] [iterations] [cr ci]`.
-`./fractol --help` prints the full reference. Requirements: GCC or clang, GNU
+Usage: `./fractol <julia|mandelbrot|sierpinski> [theme] [iterations] [cr ci]` —
+iterations and Julia constants are positional, so they require a theme argument
+(`./fractol --help` prints the full reference). Requirements: GCC or clang, GNU
 make, X11 development headers (`libx11-dev`, `libxext-dev`) and a running X
 server; MiniLibX is vendored in `mlx/`.
 
